@@ -28,7 +28,7 @@ if(sessionStorage.getItem("logged_in")=="2"){
 $(document).off('click', '#submit').on('click', '#submit', function() { 
     if($('#username').val().length > 0 && $('#password').val().length > 0){
         console.log($('#check-watchuser').serialize());
-        $.ajax({url: 'http://staging.eimpressive.com/slim-four/index.php',
+        $.ajax({url: 'http://staging.eimpressive.com/slim_four_rips/index.php',
             data:$('#check-watchuser').serialize(),
             type: 'post',                   
             async: 'true',
@@ -42,10 +42,10 @@ complete: function() {
 success: function (result) {
     console.log(result);
     var pas=result[0];
-     var pass=result[17];
+   
    // alert(pas+'pas'); 
        //alert(pass+'pass');
-          if(pas == '' &&  pass == ''){
+          if(pas == '' ){
     alert('username or password entered is invalid');
     $.mobile.changePage($('#pageone'), { transition: "none", changeHash: true, reverse: false });
     return false; 
@@ -73,45 +73,49 @@ success: function (result) {
         sessionStorage.setItem("supervisor_activity_log_array",JSON.stringify(result[15]));
         sessionStorage.setItem("gcm_reg_id_array",JSON.stringify(result[16]));
 
+         sessionStorage.setItem("activity_log_supervisor_details_array",JSON.stringify(result[17]));
+          sessionStorage.setItem("image_log_array",JSON.stringify(result[18]));
+           sessionStorage.setItem("assests_verification_array",JSON.stringify(result[19]));
+            sessionStorage.setItem("bankguarantee_verification_array",JSON.stringify(result[20]));
+             sessionStorage.setItem("address_verification_array",JSON.stringify(result[21]));
+              sessionStorage.setItem("reference_verification_array",JSON.stringify(result[22]));
+               sessionStorage.setItem("distributor_verification_array",JSON.stringify(result[23]));
+                sessionStorage.setItem("distributor_details_array",JSON.stringify(result[24]));
+                 sessionStorage.setItem("web_verification_array",JSON.stringify(result[25]));
+                  sessionStorage.setItem("supplier_details_array",JSON.stringify(result[26]));
+                   sessionStorage.setItem("warehouse_verification_array",JSON.stringify(result[27]));
+
+ sessionStorage.setItem("verification_master_array",JSON.stringify(result[28]));
+          sessionStorage.setItem("emp_verification_cumulative_array",JSON.stringify(result[29]));
+           sessionStorage.setItem("driving_details_array",JSON.stringify(result[30]));
+            sessionStorage.setItem("credential_verification_array",JSON.stringify(result[31]));
+             sessionStorage.setItem("identity_verification_array",JSON.stringify(result[32]));
+              sessionStorage.setItem("bankruptcy_verification_array",JSON.stringify(result[33]));
+               sessionStorage.setItem("professional_details_array",JSON.stringify(result[34]));
+                sessionStorage.setItem("employmentgap_verification_array",JSON.stringify(result[35]));
+                 sessionStorage.setItem("delinquent_verification_array",JSON.stringify(result[36]));
+                  sessionStorage.setItem("servant_verification_array",JSON.stringify(result[37]));
+                   sessionStorage.setItem("integrity_lifestyle_verification_array",JSON.stringify(result[38]));
+
+    sessionStorage.setItem("edusalary_office_array",JSON.stringify(result[39]));
+                sessionStorage.setItem("criminal_verification_array",JSON.stringify(result[40]));
+                 sessionStorage.setItem("edusalary_education_array",JSON.stringify(result[41]));
+                  sessionStorage.setItem("integrity_lifestyle_permanent_array",JSON.stringify(result[42]));
+                   sessionStorage.setItem("servant_education_array",JSON.stringify(result[43]));
+
+     sessionStorage.setItem("coordinator_final_comment_array",JSON.stringify(result[44]));
+                  sessionStorage.setItem("sh_eeem_array",JSON.stringify(result[45]));
+                   sessionStorage.setItem("tet_array",JSON.stringify(result[46]));
+                    sessionStorage.setItem("supervisor_final_command_array",JSON.stringify(result[47]));
+
+
         $.mobile.loading().hide();
         $(".ui-icon-loading").hide();
          $.mobile.changePage($('#dashboard'), { transition: "none", changeHash: true, reverse: false }); 
 
 
     }
-    if( pass != ''){
-      //alert(pass+'co');
-         sessionStorage.setItem("logged_in","2");
-       
-           // sessionStorage.setItem("sh_regionarray",JSON.stringify(result[16])); hide for 16
-            sessionStorage.setItem("sh_new_veri_list",JSON.stringify(result[17]));
-            sessionStorage.setItem("sh_addressid_records_array",JSON.stringify(result[18]));
-             sessionStorage.setItem("sh_educational_records_array",JSON.stringify(result[19]));
-            sessionStorage.setItem("sh_multiple_documents_array",JSON.stringify(result[20]));
-             sessionStorage.setItem("sh_basic_profile_records_array",JSON.stringify(result[21]));
-             sessionStorage.setItem("sh_employment_records_array",JSON.stringify(result[22]));
-              sessionStorage.setItem("supervisor_roleid_array",JSON.stringify(result[23]));
-              sessionStorage.setItem("supervisor_activity_log_array",JSON.stringify(result[24]));
-              sessionStorage.setItem("sh_new_veri_list_count",JSON.stringify(result[25]));
-              sessionStorage.setItem("sh_inprogress_list_count",JSON.stringify(result[26]));
-              sessionStorage.setItem("sh_reject_list",JSON.stringify(result[27]));
-               sessionStorage.setItem("sh_waiting_count",JSON.stringify(result[28]));
-                sessionStorage.setItem("to_approved_sh",JSON.stringify(result[29]));
-                 sessionStorage.setItem("completed_sh_count",JSON.stringify(result[30]));
-                   sessionStorage.setItem("Inprogress_sh",JSON.stringify(result[31]));
-                     sessionStorage.setItem("tobe_approved_sh",JSON.stringify(result[32]));
-                       sessionStorage.setItem("completed_sh",JSON.stringify(result[33]));
-                       sessionStorage.setItem("waiting_sh",JSON.stringify(result[34]));
-                        sessionStorage.setItem("sh_reject_list_count",JSON.stringify(result[35]));
-                        sessionStorage.setItem("sh_verified_false",JSON.stringify(result[36]));
-                         sessionStorage.setItem("sh_verified_false_count",JSON.stringify(result[37]));
 
- 		$.mobile.loading().hide();
-        $(".ui-icon-loading").hide();
-         $.mobile.changePage($('#dashboard_sh'), { transition: "none", changeHash: true, reverse: false }); 
-   return false;
-
-    }
     
 },
 error: function (request,error) {
@@ -136,7 +140,7 @@ $(document).off('click', '#chngpass').on('click', '#chngpass', function() {
   alert('chngpass');
             if($('#userchn').val().length > 0 && $('#chngpassword').val().length > 0){
         console.log($('#check_userpass').serialize());
-                    $.ajax({url: 'http://staging.eimpressive.com/slim-four/chngpass.php',
+                    $.ajax({url: 'http://staging.eimpressive.com/slim_four_rips/chngpass.php',
                         data:$('#check_userpass').serialize(),
                         type: 'post',                   
                         async: 'true',
