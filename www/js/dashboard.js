@@ -260,7 +260,7 @@ alert('Network error has occurred please try again!');
     sessionStorage.setItem("supervisor_final_command_array",JSON.stringify(result[9]));
 
       $.mobile.loading().hide();
-      $.mobile.changePage($('#supervisor_inprogress_list'), { transition: "none", changeHash: true, reverse: false });
+      //$.mobile.changePage($('#supervisor_inprogress_list'), { transition: "none", changeHash: true, reverse: false });
 //$.mobile.changePage("dashboard",{ transition: "none", changeHash: true, reverse: false }); 
 }else {
   alert('No Data Found for the search record'); 
