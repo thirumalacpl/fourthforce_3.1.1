@@ -1,7 +1,7 @@
 $(document).on('pageshow', '#primarymessage', function(){  
 //alert('updateactivitya 222');
 $('#chatr').empty();
-
+$('#hidethirured').empty();
 $('.upload-statusbar').remove();
 $('.ajax-upload-dragdrop').remove();
 
@@ -426,7 +426,7 @@ var settings = {
 
   url: "http://staging.eimpressive.com/watchguardlive/uploadas.php",
   method: "POST",
-  allowedTypes:"jpg,png,gif,doc",
+  allowedTypes:"jpg,png,gif",
   /*allowedTypes:"jpg,png,gif,doc,pdf,zip",*/
   fileName: "myfile",
   multiple: true,
@@ -486,7 +486,8 @@ $(document).off('click', '#chatSendButton').on('click', '#chatSendButton', funct
 /*$('.upload').empty();   */
 
 /*var x = document.getElementById("myFile").value;*/
-
+$('#hidethirured').empty();
+/*$('.upload-statusbar').remove();*/
 var remarkg=document.getElementById('remarkg').value;
 
 //alert(remarkg+'remarkg');
@@ -525,10 +526,11 @@ $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
 });
 
 var formData = $("#callAjaxForm").serialize();
-//alert('remarkg not empty');
+alert('remarkg not empty msg type must empty');
+alert(user_id+'user_id');
 $.ajax({
   type: "POST",
-  url: "http://staging.eimpressive.com/slim_four_rips/chat.php?loginistant="+loginistant+"&verification_user_id="+verification_user_id+"&coordinator_id="+coordinator_id+"&status_val_inpro="+status_val_inpro+"&remarkg="+remarkg+"&qualification_id="+qualification_id+"&username="+username+"&typofver="+typofver+"&pertobever="+pertobever+"&pertobeverlast="+pertobeverlast+"&task="+task+"&eeemail="+eeemail,
+  url: "http://staging.eimpressive.com/slim-four/chat.php?loginistant="+loginistant+"&verification_user_id="+verification_user_id+"&coordinator_id="+coordinator_id+"&status_val_inpro="+status_val_inpro+"&sdocument="+sdocument+"&remarkg="+remarkg+"&qualification_id="+qualification_id+"&username="+username+"&typofver="+typofver+"&pertobever="+pertobever+"&pertobeverlast="+pertobeverlast+"&task="+task+"&eeemail="+eeemail,
 
   data: formData,
   success: onSuccess,
@@ -551,7 +553,7 @@ $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
 });
 
 var formData = $("#callAjaxForm").serialize();
-//alert('drop button value insert 84 85');
+alert('intlife');
 $.ajax({
   type: "POST",
   url: "http://staging.eimpressive.com/slim_four_rips/lifeint.php?verification_user_id="+verification_user_id+"&coordinator_id="+coordinator_id+"&qualification_id="+qualification_id+"&inte="+inte+"&inte_rat="+inte_rat+"&beh="+beh+"&beh_rat="+beh_rat+"&hab="+hab+"&hab_rat="+hab_rat,
@@ -575,9 +577,9 @@ $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
   options.async = true;
 });
 
-//alert(sdocument+'sdocument'+'save typed msg');
+alert('save typed msg');
 var formData = $("#callAjaxForm").serialize();
-//alert('updateactivitya msg');
+alert('updateactivitya msg text');
 $.ajax({
   type: "POST",
 url: "http://staging.eimpressive.com/slim_four_rips/chat.php?loginistant="+loginistant+"&verification_user_id="+verification_user_id+"&coordinator_id="+coordinator_id+"&status_val_inpro="+status_val_inpro+"&remarkg="+remarkg+"&qualification_id="+qualification_id+"&username="+username+"&typofver="+typofver+"&pertobever="+pertobever+"&pertobeverlast="+pertobeverlast+"&task="+task+"&eeemail="+eeemail,
@@ -603,7 +605,7 @@ var formData = $("#callAjaxForm").serialize();
 //alert('updateactivitya image');
 $.ajax({
   type: "POST",
-url: "http://staging.eimpressive.com/slim-four/chat.php?loginistant="+loginistant+"&verification_user_id="+verification_user_id+"&coordinator_id="+coordinator_id+"&status_val_inpro="+status_val_inpro+"&sdocument="+sdocument+"&remarkg="+remarkg+"&qualification_id="+qualification_id+"&username="+username+"&typofver="+typofver+"&pertobever="+pertobever+"&pertobeverlast="+pertobeverlast+"&task="+task+"&eeemail="+eeemail,
+url: "http://staging.eimpressive.com/slim_four_rips/chat.php?loginistant="+loginistant+"&verification_user_id="+verification_user_id+"&coordinator_id="+coordinator_id+"&status_val_inpro="+status_val_inpro+"&sdocument="+sdocument+"&remarkg="+remarkg+"&qualification_id="+qualification_id+"&username="+username+"&typofver="+typofver+"&pertobever="+pertobever+"&pertobeverlast="+pertobeverlast+"&task="+task+"&eeemail="+eeemail,
 
   data: formData,
   success: onSuccess,
@@ -623,7 +625,7 @@ return false;
 }
 
 if(remarkg != ''  && status_val_inpro != 'Inprogress' ){
-//alert('dads');
+alert('remarkg not empty count');
   document.getElementById('messageText').value = "";
 document.getElementById('remarkg').value = "";
   //alert(region_num);
@@ -650,14 +652,10 @@ $.ajax({url: 'http://staging.eimpressive.com/slim_four_rips/count.php?region='+r
      	sessionStorage.setItem("supervisor_verified_count_array",JSON.stringify(result[1]));
        	sessionStorage.setItem("supervisor_completed_count_array",JSON.stringify(result[2]));
  		sessionStorage.setItem("supervisor_not_verified_count_array",JSON.stringify(result[3]));
- 
  sessionStorage.setItem("supervisor_inprogress_array",JSON.stringify(result[4]));
       sessionStorage.setItem("supervisor_verified_array",JSON.stringify(result[5]));
         sessionStorage.setItem("supervisor_completed_array",JSON.stringify(result[6]));
     sessionStorage.setItem("supervisor_not_verified_array",JSON.stringify(result[7]));
-
-         sessionStorage.setItem("supervisor_activity_log_array",JSON.stringify(result[8]));
-    sessionStorage.setItem("supervisor_final_command_array",JSON.stringify(result[9]));
 
       $.mobile.loading().hide();
       $.mobile.changePage($('#dashboard'), { transition: "none", changeHash: true, reverse: false });
