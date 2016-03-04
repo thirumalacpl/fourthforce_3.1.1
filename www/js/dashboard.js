@@ -228,7 +228,53 @@ alert('Network error has occurred please try again!');
           console.log("notification event");
             console.log(JSON.stringify(data));
             var cards = document.getElementById("cards");
+
+
            alert(data.title + data.message);
+
+           $.ajax({url: 'http://staging.eimpressive.com/slim_four_rips/count.php?region='+region+"&user_id="+user_id+"&state="+state,
+  data:$('#update_to_inprogressw').serialize(),
+  type: 'post',                   
+  async: 'true',
+  crossDomain: true,
+  dataType: 'json',
+  beforeSend: function() {
+  },
+  complete: function() {
+  },
+  success: function (result) {
+    console.log('searchlpa' +result);
+    if(result[0]){
+      $("#popupsearchmade").popup("open");
+		sessionStorage.setItem("supervisor_inprogress_count_array",JSON.stringify(result[0]));
+     	sessionStorage.setItem("supervisor_verified_count_array",JSON.stringify(result[1]));
+       	sessionStorage.setItem("supervisor_completed_count_array",JSON.stringify(result[2]));
+ 		sessionStorage.setItem("supervisor_not_verified_count_array",JSON.stringify(result[3]));
+ 
+ sessionStorage.setItem("supervisor_inprogress_array",JSON.stringify(result[4]));
+      sessionStorage.setItem("supervisor_verified_array",JSON.stringify(result[5]));
+        sessionStorage.setItem("supervisor_completed_array",JSON.stringify(result[6]));
+    sessionStorage.setItem("supervisor_not_verified_array",JSON.stringify(result[7]));
+
+         sessionStorage.setItem("supervisor_activity_log_array",JSON.stringify(result[8]));
+    sessionStorage.setItem("supervisor_final_command_array",JSON.stringify(result[9]));
+
+      $.mobile.loading().hide();
+      $.mobile.changePage($('#supervisor_inprogress_list'), { transition: "none", changeHash: true, reverse: false });
+//$.mobile.changePage("dashboard",{ transition: "none", changeHash: true, reverse: false }); 
+}else {
+  alert('No Data Found for the search record'); 
+}
+
+return false;
+},
+error: function (request,error) {    
+  console.log(request);
+  console.log(error);  
+  $("#Network").popup("open");         
+  alert('Network error has occurred please try again!');
+}
+});
            /* var card = '<div class="row">' +
             '<div class="col s12 m6">' +
           '  <div class="card darken-1">' +
