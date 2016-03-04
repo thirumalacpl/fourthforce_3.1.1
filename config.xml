@@ -21,7 +21,8 @@
   <preference name="android-installLocation" value="auto"/>
   
 
-
+<preference name="SplashMaintainAspectRatio" value="true|false" />
+<preference name="SplashShowOnlyFirstTime" value="true|false" />
 
  <preference name="android-minSdkVersion" value="15" /> 
 
