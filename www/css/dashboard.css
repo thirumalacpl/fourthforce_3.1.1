@@ -47,6 +47,7 @@
 .ui-grid-solo{
 	    padding-top: 2%;
 }
+
 .ui-content{
 	/*padding: 0em !important;*/
 }
@@ -705,7 +706,7 @@ textarea.ui-input-text.ui-textinput-autogrow {
 div.upload {
     width: 80px !important;
     height: 80px !important;
-    background: url(../images/primary/uppc.png);
+    background: url(../images/primary/qwe.png);
     /* background-color: red; */
     background-size: 100%;
     background-repeat: no-repeat;
