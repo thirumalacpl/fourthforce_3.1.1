@@ -105,8 +105,8 @@ success: function (result) {
 
      sessionStorage.setItem("coordinator_final_comment_array",JSON.stringify(result[44]));
                   sessionStorage.setItem("sh_eeem_array",JSON.stringify(result[45]));
-                   sessionStorage.setItem("tet_array",JSON.stringify(result[46]));
-                    sessionStorage.setItem("supervisor_final_command_array",JSON.stringify(result[47]));
+                   /*sessionStorage.setItem("tet_array",JSON.stringify(result[46]));*/
+                    sessionStorage.setItem("supervisor_final_command_array",JSON.stringify(result[46]));
 
 
         $.mobile.loading().hide();
